@@ -123,11 +123,15 @@
             if (e.code === 'KeyX') {keyboardControls.KeyX = false}
             if (e.code === 'KeyC') {keyboardControls.KeyC = false}
             partial = keyboardControls.KeyC ? 4 : (keyboardControls.KeyX ? 3 : (keyboardControls.KeyZ ? 2 : 1));
-            if (isBlowing) {updatePitch();}
+            updatePitch();
         });
         
         pitchControl.addEventListener('mousedown', startBlowing);
         pitchControl.addEventListener('mousemove', slide);
         pitchControl.addEventListener('mouseup', stopBlowing);
+
+        pitchControl.addEventListener('touchstart', startBlowing);
+        pitchControl.addEventListener('touchmove', slide);
+        pitchControl.addEventListener('touchend', stopBlowing);
     });
 })();
