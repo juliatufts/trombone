@@ -4,7 +4,7 @@
     const AudioContext = window.AudioContext || window.webkitAudioContext;
     const ctx = new AudioContext();
 
-    const tromboneUrl = "pffttftft_bflat.wav";
+    const tromboneUrl = "sfx/pffttftft_bflat.wav";
     const masterVolumeControl = document.querySelector('#volume');
     const pitchControl = document.querySelector('#pitch');
 
