@@ -1,0 +1,80 @@
+/*
+  Sources:
+  - https://codepen.io/thebabydino/pen/goYYrN
+  - https://css-tricks.com/sliding-nightmare-understanding-range-input/
+*/
+body {
+  background-color: #fff; }
+
+.trombone-wrapper {
+  display: flex;
+  justify-content: center; }
+  .trombone-wrapper [type='range'] {
+    --range: calc(var(--max) - var(--min));
+    --ratio: calc((var(--val) - var(--min))/var(--range));
+    --sx: calc(.5*16px + var(--ratio)*(100% - 16px));
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    height: 16px;
+    background: transparent; }
+    .trombone-wrapper [type='range'], .trombone-wrapper [type='range']::-webkit-slider-thumb {
+      -webkit-appearance: none; }
+    .trombone-wrapper [type='range']::-webkit-slider-runnable-track {
+      box-sizing: border-box;
+      border: none;
+      width: 200px;
+      height: 12px;
+      background: #ebebeb;
+      border-radius: 6px;
+      background: linear-gradient(#b8b8b8, #b8b8b8) 0/var(--sx) 100% no-repeat #ebebeb; }
+    .trombone-wrapper [type='range']::-moz-range-track {
+      box-sizing: border-box;
+      border: none;
+      width: 200px;
+      height: 12px;
+      background: #ebebeb;
+      border-radius: 6px; }
+    .trombone-wrapper [type='range']::-ms-track {
+      box-sizing: border-box;
+      border: none;
+      width: 200px;
+      height: 12px;
+      background: #ebebeb;
+      border-radius: 6px; }
+    .trombone-wrapper [type='range']::-moz-range-progress {
+      height: 12px;
+      background: #b8b8b8; }
+    .trombone-wrapper [type='range']::-ms-fill-lower {
+      height: 12px;
+      background: #b8b8b8; }
+    .trombone-wrapper [type='range']::-webkit-slider-thumb {
+      margin-top: -2px;
+      box-sizing: border-box;
+      border: none;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: goldenrod; }
+    .trombone-wrapper [type='range']::-moz-range-thumb {
+      box-sizing: border-box;
+      border: none;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: goldenrod; }
+    .trombone-wrapper [type='range']::-ms-thumb {
+      margin-top: 0;
+      box-sizing: border-box;
+      border: none;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: goldenrod; }
+    .trombone-wrapper [type='range']::-ms-tooltip {
+      display: none; }
+  .trombone-wrapper input[type=range]:focus {
+    outline: none;
+    /* TODO: Add custom focus styles */ }
+
+/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,11 @@
+@import 'range-fill.scss';
+
+body {
+    background-color: #fff;
+}
+
+.trombone-wrapper {
+  @include range-fill();
+  display: flex;
+  justify-content: center;
+}
