@@ -1,6 +1,5 @@
 
 (() => {
-    // for legacy browsers
     const AudioContext = window.AudioContext || window.webkitAudioContext;
     const ctx = new AudioContext();
 
@@ -14,12 +13,14 @@
     const masterGainNode = ctx.createGain();
 
     let currentlyPlayingIndex = -1;
+    let currentlyPlayingPromise = null;
     let isBlowing = false;
     let partial = 1;
     const keyboardControls = {
         KeyZ: false,
         KeyX: false,
-        KeyC: false};
+        KeyC: false
+    };
 
     function init() {
         for(let i = 0; i < buffSize; i++) {
@@ -59,7 +60,6 @@
         if (partial == 3) {semitones = 12}
         if (partial == 4) {semitones = 16}
         if (partial == 5) {semitones = 19}
-        
         return 2**((1 - position + semitones) / 12.0);
     }
 
@@ -74,7 +74,8 @@
         if (ctx.state === 'suspended') {
             ctx.resume();
         }
-        loadSample(tromboneUrl).then(() => {
+
+        currentlyPlayingPromise = loadSample(tromboneUrl).then(() => {
             sourceNodes[currentlyPlayingIndex].start(0);
             updatePitch();
         });
@@ -89,17 +90,27 @@
     function stopBlowing() {
         if (isBlowing) {
             isBlowing = false;
-            const index = currentlyPlayingIndex;
-            let diminuendo = setInterval(() => {
-                const currentGain = sourceGainNodes[index].gain.value;
-                if (currentGain <= 0.1) {
-                    sourceGainNodes[index].gain.value = 0;
-                    sourceNodes[index].stop();
-                    clearInterval(diminuendo);
-                    return;
-                }
-                sourceGainNodes[index].gain.value = (currentGain - 0.1);
-            }, 20);
+
+            // Make sure current sample has loaded/started playing before
+            // stopping it
+            currentlyPlayingPromise.then(() => {
+                const index = currentlyPlayingIndex;
+                let diminuendo = setInterval(() => {
+                    if (!sourceGainNodes[index]) {
+                        clearInterval(diminuendo);
+                        return;
+                    }
+                    const currentGain = sourceGainNodes[index].gain.value;
+                    if (currentGain <= 0.1) {
+                        sourceGainNodes[index].gain.value = 0;
+                        sourceNodes[index].stop();
+                        clearInterval(diminuendo);
+                        return;
+                    }
+                    sourceGainNodes[index].gain.value = (currentGain - 0.1);
+                }, 20);
+            });
+
         }
     }
 
@@ -115,7 +126,7 @@
             if (e.code === 'KeyX') {keyboardControls.KeyX = true}
             if (e.code === 'KeyC') {keyboardControls.KeyC = true}
             partial = keyboardControls.KeyC ? 4 : (keyboardControls.KeyX ? 3 : (keyboardControls.KeyZ ? 2 : 1));
-            if (isBlowing) {updatePitch();}
+            updatePitch();
         });
 
         document.addEventListener('keyup', (e) => {
