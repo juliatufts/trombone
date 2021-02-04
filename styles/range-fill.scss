@@ -4,12 +4,12 @@
   - https://css-tricks.com/sliding-nightmare-understanding-range-input/
 */
 
-$track-w: 200px;
-$track-h: 12px;
-$thumb-d: 16px;
-$track-c: #ebebeb;
-$fill-c: #b8b8b8;
-$thumb-c: goldenrod;
+$track-w: 150px;
+$track-h: 24px;
+$thumb-d: 24px;
+$track-c: rgba(0, 255, 0, 0.5);
+$fill-c: rgba(255, 255, 0, 0.2);
+$thumb-c: rgba(255, 0, 255, 0.123);
 
 @mixin track($fill: 0) {
   box-sizing: border-box;

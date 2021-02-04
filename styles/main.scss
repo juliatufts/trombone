@@ -8,8 +8,23 @@ body {
   @include range-fill();
   display: flex;
   justify-content: center;
+  position: relative;
 
-  .svg {
+  input {
+    position: absolute;
+    top: 42px;
+    left: 120px;
+  }
+
+  input:hover {
+    cursor: pointer;
+  }
+
+  input:active {
+    cursor: grabbing;
+  }
+
+  .svg-wrapper {
     height: 100px;
     width: 300px;
     position: relative;
