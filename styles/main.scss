@@ -32,5 +32,9 @@ body {
     svg {
       position: absolute;
     }
+
+    .slider {
+      left: var(--left);
+    }
   }
 }

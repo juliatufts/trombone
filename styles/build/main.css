@@ -26,29 +26,29 @@ body {
       border: none;
       width: 150px;
       height: 24px;
-      background: rgba(0, 255, 0, 0.5);
+      background: transparent;
       border-radius: 6px;
-      background: linear-gradient(rgba(255, 255, 0, 0.2), rgba(255, 255, 0, 0.2)) 0/var(--sx) 100% no-repeat rgba(0, 255, 0, 0.5); }
+      background: linear-gradient(transparent, transparent) 0/var(--sx) 100% no-repeat transparent; }
     .trombone-wrapper [type='range']::-moz-range-track {
       box-sizing: border-box;
       border: none;
       width: 150px;
       height: 24px;
-      background: rgba(0, 255, 0, 0.5);
+      background: transparent;
       border-radius: 6px; }
     .trombone-wrapper [type='range']::-ms-track {
       box-sizing: border-box;
       border: none;
       width: 150px;
       height: 24px;
-      background: rgba(0, 255, 0, 0.5);
+      background: transparent;
       border-radius: 6px; }
     .trombone-wrapper [type='range']::-moz-range-progress {
       height: 24px;
-      background: rgba(255, 255, 0, 0.2); }
+      background: transparent; }
     .trombone-wrapper [type='range']::-ms-fill-lower {
       height: 24px;
-      background: rgba(255, 255, 0, 0.2); }
+      background: transparent; }
     .trombone-wrapper [type='range']::-webkit-slider-thumb {
       margin-top: 0px;
       box-sizing: border-box;
@@ -56,14 +56,14 @@ body {
       width: 24px;
       height: 24px;
       border-radius: 50%;
-      background: rgba(255, 0, 255, 0.123); }
+      background: transparent; }
     .trombone-wrapper [type='range']::-moz-range-thumb {
       box-sizing: border-box;
       border: none;
       width: 24px;
       height: 24px;
       border-radius: 50%;
-      background: rgba(255, 0, 255, 0.123); }
+      background: transparent; }
     .trombone-wrapper [type='range']::-ms-thumb {
       margin-top: 0;
       box-sizing: border-box;
@@ -71,7 +71,7 @@ body {
       width: 24px;
       height: 24px;
       border-radius: 50%;
-      background: rgba(255, 0, 255, 0.123); }
+      background: transparent; }
     .trombone-wrapper [type='range']::-ms-tooltip {
       display: none; }
   .trombone-wrapper input[type=range]:focus {
@@ -91,5 +91,7 @@ body {
     position: relative; }
     .trombone-wrapper .svg-wrapper svg {
       position: absolute; }
+    .trombone-wrapper .svg-wrapper .slider {
+      left: var(--left); }
 
 /*# sourceMappingURL=main.css.map */

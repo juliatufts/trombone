@@ -7,9 +7,9 @@
 $track-w: 150px;
 $track-h: 24px;
 $thumb-d: 24px;
-$track-c: rgba(0, 255, 0, 0.5);
-$fill-c: rgba(255, 255, 0, 0.2);
-$thumb-c: rgba(255, 0, 255, 0.123);
+$track-c: transparent;
+$fill-c: transparent;
+$thumb-c: transparent;
 
 @mixin track($fill: 0) {
   box-sizing: border-box;
