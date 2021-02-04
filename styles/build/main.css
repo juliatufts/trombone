@@ -76,5 +76,11 @@ body {
   .trombone-wrapper input[type=range]:focus {
     outline: none;
     /* TODO: Add custom focus styles */ }
+  .trombone-wrapper .svg {
+    height: 100px;
+    width: 300px;
+    position: relative; }
+    .trombone-wrapper .svg svg {
+      position: absolute; }
 
 /*# sourceMappingURL=main.css.map */

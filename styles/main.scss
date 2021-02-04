@@ -8,4 +8,14 @@ body {
   @include range-fill();
   display: flex;
   justify-content: center;
+
+  .svg {
+    height: 100px;
+    width: 300px;
+    position: relative;
+
+    svg {
+      position: absolute;
+    }
+  }
 }

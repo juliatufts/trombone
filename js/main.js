@@ -64,7 +64,9 @@
     }
 
     function updatePitch() {
-        sourceNodes[currentlyPlayingIndex].playbackRate.value = calculatePitch(pitchControl.value, partial);
+        if (isBlowing) {
+            sourceNodes[currentlyPlayingIndex].playbackRate.value = calculatePitch(pitchControl.value, partial);
+        }
     }
 
     function startBlowing() {
@@ -82,9 +84,7 @@
     }
 
     function slide() {
-        if (isBlowing) {
-            updatePitch();
-        }
+        updatePitch();
     }
 
     function stopBlowing() {
